@@ -27,11 +27,19 @@ export default function CharacterList() {
   // TODO: Add useState to track data from useEffect
   const [charList, setCharList] = useState([]);
 
-  // const searchCharacters = character =>{
-  //   charList.filter
+ 
+  
+
+  // const searchCharacters = query =>{
+  //   useEffect((props) => {
+  //     console.log(props);
+  //     const results = props.charList.filter(name =>
+  //       name.toLowerCase().includes(query)
+  //       );
+  //       setSearchResults(results);   
+  //   },[query]);
 
 
-  // }
 
 
 
@@ -57,7 +65,7 @@ export default function CharacterList() {
   return (
     <section>
     <SearchSection>
-    <SearchForm  />
+    <SearchForm charList={charList} />
     </SearchSection>
     <ListContainer>
       {charList.map((character) => {

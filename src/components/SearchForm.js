@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 
 export default function SearchForm(props) {
-  console.log(props);
   const [query,setQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
 
@@ -9,13 +8,16 @@ export default function SearchForm(props) {
     setQuery(e.target.value);
   };
 
-  // useEffect((props) => {
-  //   console.log(props);
-  //   const results = props.name.filter(name =>
-  //     name.toLowerCase().includes(query)
+  // useEffect(() =>{
+  //   const results = props.charList.filter(item =>
+  //       props.charList.name.toLowerCase().includes(query)
   //     );
-  //     setSearchResults(results);   
-  // },[query]);
+  //     setSearchResults(results);
+  // }, [query]);
+
+  console.log(props.charList);
+
+ 
 
 
   return (
@@ -28,8 +30,15 @@ export default function SearchForm(props) {
      onChange={handleChange}/>
      <button type='submit'>Character Search</button>
      </form>
+        <div>
+          <ul>
+            {searchResults.map(character =>(
+              <li>{character}</li>
+            ))}          
+          </ul>
+        </div>
      <div>
-        
+
      
      
      </div>
