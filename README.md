@@ -26,9 +26,9 @@ In this challenge, you will create a Single Page Application complete with Clien
 
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question.
 
-- [ ]  Explain benefit(s) using `client-side routing`?
+- [x]  Explain benefit(s) using `client-side routing`?
 
-> Answer:
+> Answer: The benefit of client-side rendering is a smoother, faster user experience. Client-side rendering takes longer to load up front, but after initial load, interacting with the app doesn't require server requests (because routed through BrowserRouter), which means it doesn't reload the entire page because it's not requesting new content,but routing the path between components. 
 
 ## Project Set Up
 
