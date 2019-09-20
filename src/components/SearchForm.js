@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 
-export default function SearchForm() {
+export default function SearchForm(props) {
+  console.log(props);
   const [query,setQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
 
   const handleChange = e => {
     setQuery(e.target.value);
-  }
+  };
 
   // useEffect((props) => {
   //   console.log(props);
@@ -20,9 +21,18 @@ export default function SearchForm() {
   return (
     <section className="search-form">
     <form>
-     <input type="text" placeholder="Character Name" value={query} onChange={handleChange}/>
+     <input 
+     type="text" 
+     placeholder="Character Name" 
+     value={query} 
+     onChange={handleChange}/>
      <button type='submit'>Character Search</button>
      </form>
+     <div>
+        
+     
+     
+     </div>
      </section>
   );
 }

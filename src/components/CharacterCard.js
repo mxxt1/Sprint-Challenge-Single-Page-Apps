@@ -13,15 +13,15 @@ const Card = styled.div`
 
 `;
 
-export default function CharacterCard({character}) {
-console.log(character)
+export default function CharacterCard(props) {
+console.log(props)
   return (
-    <Card key={character.id}>
-    <img src={character.image} alt={character.name}/>
-    <h2>{character.name}</h2>
-    <p>ID: {character.id}</p>
-    <p>Gender: {character.gender}</p>
-    <p>Species: {character.species}</p>
+    <Card >
+    <img src={props.image} alt={props.name}/>
+    <h2>{props.name}</h2>
+    <p>ID: {props.id}</p>
+    <p>Gender: {props.gender}</p>
+    <p>Species: {props.species}</p>
     </Card>
   );
 }

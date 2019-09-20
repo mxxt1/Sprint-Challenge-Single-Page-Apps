@@ -27,6 +27,14 @@ export default function CharacterList() {
   // TODO: Add useState to track data from useEffect
   const [charList, setCharList] = useState([]);
 
+  // const searchCharacters = character =>{
+  //   charList.filter
+
+
+  // }
+
+
+
   useEffect(() => {
     // TODO: Add API Request here - must run in `useEffect`
     //  Important: verify the 2nd `useEffect` parameter: the dependancies array!
@@ -52,11 +60,19 @@ export default function CharacterList() {
     <SearchForm  />
     </SearchSection>
     <ListContainer>
-      {charList.map(character => (
-        <>
-          <CharacterCard key={character.id} character={character}/>
-        </>
-      ))}
+      {charList.map((character) => {
+        return(
+          <CharacterCard 
+          key={character.id} 
+          name={character.name}
+          image={character.image}
+          species ={character.species}
+          gender = {character.gender}
+          id = {character.id}
+          />
+        )
+      }
+      )}
     </ListContainer>
     </section>
   );
