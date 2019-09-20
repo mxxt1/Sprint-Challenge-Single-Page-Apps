@@ -10,8 +10,14 @@ const ListContainer = styled.section`
   display:flex;
   flex-wrap:wrap;
   padding:5%;
+  margin: 0 auto;
+  justify-content: center;
+`;
 
-
+const SearchSection = styled.section`
+  display:flex;
+  justify-content: center;
+  padding: 3%;
 
 `;
 
@@ -41,14 +47,17 @@ export default function CharacterList() {
 
 
   return (
-    
+    <section>
+    <SearchSection>
+    <SearchForm  />
+    </SearchSection>
     <ListContainer>
-    <div><SearchForm /></div>
       {charList.map(character => (
         <>
           <CharacterCard key={character.id} character={character}/>
         </>
       ))}
     </ListContainer>
+    </section>
   );
 }

@@ -20,8 +20,8 @@ export default function SearchForm() {
   return (
     <section className="search-form">
     <form>
-     <input type="text" placeholder="search" value={query} onChange={handleChange}/>
-     <button type='submit'>Search</button>
+     <input type="text" placeholder="Character Name" value={query} onChange={handleChange}/>
+     <button type='submit'>Character Search</button>
      </form>
      </section>
   );

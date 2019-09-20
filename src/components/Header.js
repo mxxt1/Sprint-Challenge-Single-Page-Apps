@@ -5,6 +5,7 @@ import styled from 'styled-components';
 const StyledNav = styled.nav`
   display:flex;
   justify-content: space-evenly;
+  border:2px solid black;
 `;
 
 const StyledTitle = styled.div`
