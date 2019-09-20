@@ -1,15 +1,23 @@
 import React from "react";
 import styled from 'styled-components';
 
+const Card = styled.div`
+  border: 1px solid red;
+  padding:2%;
+  display:flex;
+  flex-direction: column;
+  align-items:center;
+`;
+
 export default function CharacterCard({character}) {
 console.log(character)
   return (
-    <div key={character.id}>
+    <Card key={character.id}>
     <img src={character.image} alt={character.name}/>
     <h2>Name: {character.name}</h2>
     <p>ID: {character.id}</p>
     <p>Gender: {character.gender}</p>
     <p>Species: {character.species}</p>
-    </div>
+    </Card>
   );
 }
