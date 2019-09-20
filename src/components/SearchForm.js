@@ -10,9 +10,9 @@ export default function SearchForm(props) {
 
   // useEffect(() =>{
   //   const results = props.charList.filter(item =>
-  //       props.charList.name.toLowerCase().includes(query)
+
   //     );
-  //     setSearchResults(results);
+      
   // }, [query]);
 
   console.log(props.charList);
