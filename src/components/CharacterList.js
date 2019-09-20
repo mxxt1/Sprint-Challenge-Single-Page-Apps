@@ -3,6 +3,19 @@ import {Route} from 'react-router-dom';
 import axios from 'axios';
 import CharacterCard from "./CharacterCard";
 import SearchForm from "./SearchForm";
+import styled from 'styled-components';
+
+const ListContainer = styled.section`
+  border: 1px solid black;
+  display:flex;
+  flex-wrap:wrap;
+  padding:5%;
+
+
+
+`;
+
+
 
 export default function CharacterList() {
   // TODO: Add useState to track data from useEffect
@@ -28,13 +41,14 @@ export default function CharacterList() {
 
 
   return (
-    <section className="character-list">
-      <SearchForm data={charList}/>
+    
+    <ListContainer>
+    <div><SearchForm /></div>
       {charList.map(character => (
         <>
           <CharacterCard key={character.id} character={character}/>
         </>
       ))}
-    </section>
+    </ListContainer>
   );
 }

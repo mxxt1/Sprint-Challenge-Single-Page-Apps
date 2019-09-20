@@ -2,14 +2,38 @@ import React from "react";
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 
+const StyledNav = styled.nav`
+  display:flex;
+  justify-content: space-evenly;
+`;
+
+const StyledTitle = styled.div`
+  width:50%;
+`;
+
+const LinkContainer = styled.div`
+  width:50%;
+  display:flex;
+  align-items:center;
+  justify-content:space-evenly;
+`;
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+`;
+
 export default function Header() {
   return (
     <header className="ui centered">
-    <nav>
+    <StyledNav>
+      <StyledTitle>
         <h1 className="ui center">Rick &amp; Morty Fan Page</h1>     
-        <Link to="/">Home</Link>
-        <Link to="/characters">Character List</Link>
-      </nav>
+       </StyledTitle>
+        <LinkContainer> 
+        <StyledLink to="/">Home</StyledLink>
+        <StyledLink to="/characters">Characters</StyledLink>
+        </LinkContainer>
+      </StyledNav>
     </header>
   );
 }
