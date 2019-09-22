@@ -9,6 +9,13 @@ const Card = styled.div`
   border: 1px solid black;
   padding:2%;
   margin: 2%;
+  align-items: center;
+`;
+
+const StyledImg = styled.img`
+  max-width: 90%;
+
+
 `;
 
 export default function CharacterCard(props) {
@@ -17,8 +24,8 @@ export default function CharacterCard(props) {
   
   return (
     <Card key={key}>
+      <StyledImg src={image} alt={`${name}`} />
       <h1>{name}</h1>
-      <img src={image} alt={`${name}`} />
       <h3>{origin}</h3>
     </Card>
   )

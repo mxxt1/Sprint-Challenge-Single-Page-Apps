@@ -6,10 +6,21 @@ import styled from 'styled-components';
 
 const CardContainer = styled.section`
   
-  width: 80%
+  width: 90%
   margin: auto;
   display: flex; 
   flex-wrap:wrap;
+  justify-content: center;
+  text-align:center;
+
+`;
+
+const SearchContainer = styled.div`
+  width: 100%;
+  display:flex;
+  justify-content:center;
+  padding:5%;
+
 
 `;
 
@@ -50,13 +61,15 @@ export default function CharacterList() {
    }, [query]);
 
     return (
-      <CardContainer className="character-list">
-            <SearchForm 
+      <CardContainer className="character-list"> 
+         <SearchContainer> 
+          <SearchForm 
               query={query}
               setQuery={setQuery}
               charList={charList}
               setCharList={setCharList}      
               />
+              </SearchContainer>   
             {charList.map(character => {
               return(
                 <CharacterCard 
