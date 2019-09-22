@@ -4,7 +4,16 @@ export default function SearchForm() {
  
   return (
     <section className="search-form">
-     // Add a search form here
+      <form>
+          <input
+          type='text'
+          placeholder='Search For A Character' 
+              
+          />
+          <button>Submit</button>
+      
+      
+      </form>
     </section>
   );
 }
