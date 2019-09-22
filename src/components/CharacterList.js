@@ -22,45 +22,90 @@ export default function CharacterList() {
   useEffect(() => {
     // TODO: Add API Request here - must run in `useEffect`
     //  Important: verify the 2nd `useEffect` parameter: the dependancies array!
-
     axios.get(`https://rickandmortyapi.com/api/character/`)
     .then(response =>{
+      // const data = response.data.results;
+      let newArr = [];
       const data = response.data.results;
-      const results = data.filter(character => {
-        character.name.toLowerCase().includes(query.toLowerCase());
-      });
-      return setCharList(results);
+      console.log(data);
+      console.log(data[0].name);
+
+      for (let i=0;i<data.length;i++){
+        if (data[i].name.toLowerCase().includes(query.toLowerCase())){
+          newArr.push(data[i]);
+        }
+      }
+      console.log(newArr);
+      setCharList(newArr);
+
+      // const queryData = data.filter(character => {
+      //   character.name.includes('Rick');
+      // });
+      // console.log(queryData);
+
+      
     })
-    .catch(error => console.log('error', error))
-  }, [query]);
+    .catch(error => {console.log('error', error)});
+   }, [query]);
+
+    return (
+      <CardContainer className="character-list">
+            <SearchForm 
+              query={query}
+              setQuery={setQuery}
+              charList={charList}
+              setCharList={setCharList}      
+              />
+            {charList.map(character => {
+              return(
+                <CharacterCard 
+                    key={character.id}
+                    // id={character.id}
+                    image = {character.image}
+                    name={character.name}
+                    origin={character.origin.name}
+                    // species = {character.species}
+                    // status = {character.status}
+                     />
+              );
+            })
+           };
+      </CardContainer>
+    ); 
 
 
-  console.log(charList);
-
-  return (
-    <CardContainer className="character-list">
-          <SearchForm 
-            query={query}
-            setQuery={setQuery}      
-            />
-          {charList.map(character => {
-            return(
-              <CharacterCard 
-                  key={character.id}
-                  // id={character.id}
-                  image = {character.image}
-                  name={character.name}
-                  origin={character.origin.name}
-                  // species = {character.species}
-                  // status = {character.status}
-                   />
-            );
-          })
-         };
-    </CardContainer>
-  );
- 
+  
 }//end
+
+
+
+
+// useEffect(() => {
+//   // TODO: Add API Request here - must run in `useEffect`
+//   //  Important: verify the 2nd `useEffect` parameter: the dependancies array!
+
+//     const getCharacters = () => {
+//       axios.get('https://rickandmortyapi.com/api/character')
+//       .then(response => {
+//         // console.log(response)
+//         setCharList(response.data.results)
+//       })
+//       .catch(error =>{
+//         console.log('Result Error: ',error)
+//       })
+//     }
+//     getCharacters();
+// }, []);
+
+
+
+
+
+
+
+
+
+
 
 
 // 0:
