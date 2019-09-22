@@ -18,7 +18,6 @@ export default function CharacterList() {
   // TODO: Add useState to track data from useEffect
   const [charList, setCharList] = useState([]);
   const [query, setQuery] = useState('');
-  const [searchResults, setSearchResults] = useState([]);
 
   useEffect(() => {
     // TODO: Add API Request here - must run in `useEffect`
@@ -26,19 +25,21 @@ export default function CharacterList() {
 
     axios.get(`https://rickandmortyapi.com/api/character/`)
     .then(response =>{
-      console.log(response.data.results);
-      const results = response.data.results;
-      setCharList(results);
+      const data = response.data.results;
+      const results = data.filter(character => {
+        character.name.toLowerCase().includes(query.toLowerCase());
+      });
+      return setCharList(results);
     })
-  }, []);
+    .catch(error => console.log('error', error))
+  }, [query]);
 
-  
+
+  console.log(charList);
 
   return (
     <CardContainer className="character-list">
           <SearchForm 
-            charList={charList}
-            setCharList={setCharList}
             query={query}
             setQuery={setQuery}      
             />
@@ -46,20 +47,20 @@ export default function CharacterList() {
             return(
               <CharacterCard 
                   key={character.id}
-                  id={character.id}
+                  // id={character.id}
                   image = {character.image}
                   name={character.name}
                   origin={character.origin.name}
-                  species = {character.species}
-                  status = {character.status}
+                  // species = {character.species}
+                  // status = {character.status}
                    />
-          
             );
           })
          };
     </CardContainer>
-  )
- }
+  );
+ 
+}//end
 
 
 // 0:

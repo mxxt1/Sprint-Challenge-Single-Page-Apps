@@ -13,12 +13,12 @@ const Card = styled.div`
 
 export default function CharacterCard(props) {
   
-  const {key, id, image, name, origin, species, status} = props;
+  const {key, image, name, origin} = props;
   
   return (
-    <Card>
+    <Card key={key}>
       <h1>{name}</h1>
-      <img src={image} />
+      <img src={image} alt={`${name}`} />
       <h3>{origin}</h3>
     </Card>
   )
