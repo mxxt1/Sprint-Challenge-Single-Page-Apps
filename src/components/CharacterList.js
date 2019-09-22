@@ -36,24 +36,27 @@ export default function CharacterList() {
 
   return (
     <CardContainer className="character-list">
-    <SearchForm />
-      {charList.map(character => {
-        return(
-        <CharacterCard 
-        key={character.id}
-        id={character.id}
-        image = {character.image}
-        name={character.name}
-        origin={character.origin.name}
-        species = {character.species}
-        status = {character.status}
-        />
-      
-        );
-      }
-      
-      )
-    };
+          <SearchForm 
+            charList={charList}
+            setCharList={setCharList}
+            query={query}
+            setQuery={setQuery}      
+            />
+          {charList.map(character => {
+            return(
+              <CharacterCard 
+                  key={character.id}
+                  id={character.id}
+                  image = {character.image}
+                  name={character.name}
+                  origin={character.origin.name}
+                  species = {character.species}
+                  status = {character.status}
+                   />
+          
+            );
+          })
+         };
     </CardContainer>
   )
  }

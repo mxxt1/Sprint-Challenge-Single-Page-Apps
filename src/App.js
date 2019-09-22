@@ -8,10 +8,8 @@ export default function App() {
   return (
     <main>
       <Header />
-      <CharacterList />
-      
-
-      
+      <Route path='/' exact component={WelcomePage} />
+      <Route path='/characters'component={CharacterList} />
     </main>
   );
 }
