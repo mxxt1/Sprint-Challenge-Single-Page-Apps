@@ -2,7 +2,7 @@ import React from "react";
 
 export default function SearchForm(props) {
   // console.log(props);
-  const {query, setQuery, charList, setCharList} = props;
+  const {query, setQuery} = props;
   // console.log(charList);
  
 const changeHandler = (e) => {
@@ -32,8 +32,3 @@ const changeHandler = (e) => {
     </section>
   );
 }
-
-
-// const results = data.filter(item => {
-//   item.name.toLowerCase().includes(query.toLowerCase())
-// });

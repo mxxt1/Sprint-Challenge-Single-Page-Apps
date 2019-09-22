@@ -25,23 +25,24 @@ export default function CharacterList() {
     axios.get(`https://rickandmortyapi.com/api/character/`)
     .then(response =>{
       // const data = response.data.results;
-      let newArr = [];
+      // let newArr = [];
       const data = response.data.results;
       console.log(data);
       console.log(data[0].name);
 
-      for (let i=0;i<data.length;i++){
-        if (data[i].name.toLowerCase().includes(query.toLowerCase())){
-          newArr.push(data[i]);
-        }
-      }
-      console.log(newArr);
-      setCharList(newArr);
+      const filteredList = data.filter(character => {
+        return character.name.toLowerCase().includes(query.toLowerCase());
+      });
 
-      // const queryData = data.filter(character => {
-      //   character.name.includes('Rick');
-      // });
-      // console.log(queryData);
+      console.log(filteredList);
+
+      // for (let i=0;i<data.length;i++){
+      //   if (data[i].name.toLowerCase().includes(query.toLowerCase())){
+      //     newArr.push(data[i]);
+      //   }
+      // }
+      // console.log(newArr);
+      setCharList(filteredList);
 
       
     })
